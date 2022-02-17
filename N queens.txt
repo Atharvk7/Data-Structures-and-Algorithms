@@ -1,0 +1,49 @@
+#N-Queens problem
+def issafe(arr,rows,colums):
+	for i in range(colums): # check horizontally
+		if arr[rows][i] == True:
+			return False
+	for i,j in zip(range(rows,-1,-1),range(colums,-1,-1)):
+		if arr[i][j] == True: # checks upper diagonal
+			return False
+	for i,j in zip(range(rows,N),(colums,-1,-1)):
+		if arr[i][j] == True:        # checks lower diagonal
+			return False
+	return True
+
+def solveutil(arr,colums):
+	if colums >=N:
+		return True
+	for i in range(N):
+		if issafe(arr,i,colums):
+			arr[i][colums] =1
+			if solveutil(arr,colums+1) == True:
+				return True
+			arr[i][colums] = 0           #           ###########Backtracking###########
+
+	return False
+
+def print(arr):
+	for i in range(N):
+		for j in range(N):
+			print(arr[i][j] ,end =" ")
+def answer():
+	arr =[[0, 0, 0, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0] ]#we are changing the rows so no need to check vertically just check diagonally and horizonatlly
+	if solveutil(arr,0):
+		return "solution exists"
+	else:
+		return "solution doesn't exist"
+	print(arr)
+	return True
+  
+answer()
+
+
+
+
+
+
+
