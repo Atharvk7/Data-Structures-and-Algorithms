@@ -10,7 +10,9 @@ def inordertraversal(root):
         print(root.data)
         inordertraversal(root.right)
 # Driver code
+#
 root = Node(1)
+#I made the gap
 root.left = Node(2)
 root.right = Node(3)
 root.left.left = Node(4)
@@ -178,7 +180,7 @@ def topView(root):
     mi = float('inf')
  
     if not root:
-        return ret
+        return 1
  
     q = deque([(root, 0)])
  
