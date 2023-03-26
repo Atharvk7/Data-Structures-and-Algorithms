@@ -1,0 +1,13 @@
+#House Robber
+array = [1,4,2,5,8,6,5]
+//problem statement =  Rob the  not ajacent homes inorder to get maximum money
+def houserobber(array):
+	dp = [[0]*len(array)]*len(array)
+	"""
+recursive relation = 
+possibilities = (f(money+array[i],i+2),f(money,i+1))
+maxmoney = max(possibilities,maxmoney)
+
+"""
+dp[i][j] = a[i]+dp[i-1][j-1] or 
+dp[i][j]= a[i]+ dp[i-3][j-3]+dp[i-1][j-1]
